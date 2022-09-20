@@ -8,6 +8,10 @@ exports.getTours = async () => {
 
 
 /* ----------------- Get Single Tour ----------------- */
+exports.getTour = async (id) => {
+    const result = await Tour.findById(id)
+    return result
+}
 
 /* ----------------- Post A Tour ----------------- */
 exports.postTour = async (data) => {
@@ -17,7 +21,19 @@ exports.postTour = async (data) => {
 }
 
 /* ----------------- Update A Tour ----------------- */
+exports.updateTours = async () => {
+    const result = await Tour.find({})
+    return result
+}
 
 /* ----------------- Get Trending Tours ----------------- */
+exports.trendingTours = async () => {
+    const result = await Tour.find({})
+    return result
+}
 
 /* ----------------- Get Cheapest Tours ----------------- */
+exports.chepestTours = async () => {
+    const result = await Tour.find({})
+    return result
+}

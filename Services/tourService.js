@@ -9,7 +9,7 @@ exports.getTours = async () => {
 
 /* ----------------- Get Single Tour ----------------- */
 exports.getTour = async (id) => {
-    const result = await Tour.findById(id)
+    const result = await Tour.findByIdAndUpdate(id, { $inc: { viewCount: 1 } }, { new: true })
     return result
 }
 
@@ -28,12 +28,12 @@ exports.updateTours = async ({ id, data }) => {
 
 /* ----------------- Get Trending Tours ----------------- */
 exports.trendingTours = async () => {
-    const result = await Tour.find({})
+    const result = await Tour.find({}).sort('-viewCount').limit(3)
     return result
 }
 
 /* ----------------- Get Cheapest Tours ----------------- */
 exports.chepestTours = async () => {
-    const result = await Tour.find({})
+    const result = await Tour.find({}).sort({ 'price': 1 }).limit(3)
     return result
 }

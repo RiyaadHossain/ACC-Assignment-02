@@ -80,10 +80,34 @@ exports.updateTour = async (req, res) => {
 
 /* ----------------- Get Trending Tours ----------------- */
 exports.trendingTours = async (req, res) => {
-    res.send("hello, can you hear me?")
+    try {
+        const result = await service.trendingTours()
+        res.status(201).json({
+            status: 'Success',
+            message: "Trending Tour Info!",
+            data: result
+        })
+    } catch (error) {
+        res.status(500).json({
+            status: 'Fail',
+            error: error.message
+        })
+    }
 }
 
 /* ----------------- Get Cheapest Tours ----------------- */
 exports.chepestTours = async (req, res) => {
-    res.send("hello, can you hear me?")
+    try {
+        const result = await service.chepestTours()
+        res.status(201).json({
+            status: 'Success',
+            message: "Cheapest Tour Info!",
+            data: result
+        })
+    } catch (error) {
+        res.status(500).json({
+            status: 'Fail',
+            error: error.message
+        })
+    }
 }

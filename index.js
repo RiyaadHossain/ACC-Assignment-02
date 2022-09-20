@@ -6,6 +6,7 @@ const tourRoute = require("./Routes/v1/tourRoute")
 
 const app = express()
 dotenv.config()
+app.use(express.json())
 
 // Database Connect
 require('./Config/dbConnect')

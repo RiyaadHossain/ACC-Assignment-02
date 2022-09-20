@@ -21,8 +21,8 @@ exports.postTour = async (data) => {
 }
 
 /* ----------------- Update A Tour ----------------- */
-exports.updateTours = async () => {
-    const result = await Tour.find({})
+exports.updateTours = async ({ id, data }) => {
+    const result = await Tour.findByIdAndUpdate(id, data, { new: true })
     return result
 }
 
